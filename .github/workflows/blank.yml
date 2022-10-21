@@ -11,5 +11,6 @@ jobs:
     runs-on: macos-12
     steps:
       - run: brew install lima
+      - run: limactl start
       - run: nerdctl.lima pull public.ecr.aws/docker/library/alpine:latest
       - run: nerdctl.lima images -a
