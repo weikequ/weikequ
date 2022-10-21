@@ -13,6 +13,8 @@ jobs:
         os: [macos-11, macos-12]
     runs-on: ${{ matrix.os }}
     steps:
+      - name: setup docker
+        uses: docker-practice/actions-setup-docker@1.0.11
       - run: limactl start
       - name: Setup tmate session
         uses: mxschmitt/action-tmate@v3
