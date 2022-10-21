@@ -9,6 +9,7 @@ jobs:
   test-macos:
     runs-on: ubuntu-latest
     steps:
+      - run: NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       - run: brew install nerdctl
       - run: nerdctl pull public.ecr.aws/docker/library/alpine:latest
       - run: nerdctl images -a
