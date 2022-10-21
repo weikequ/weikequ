@@ -11,6 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      - run: |
+          echo '# Set PATH, MANPATH, etc., for Homebrew.' >> /home/runner/.bash_profile
+          echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/runner/.bash_profile
+          eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+      - run: sudo apt-get install build-essential
       - run: brew install nerdctl
       - run: nerdctl pull public.ecr.aws/docker/library/alpine:latest
       - run: nerdctl images -a
