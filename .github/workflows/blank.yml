@@ -8,12 +8,9 @@ on:
 
 jobs:
   test-macos:
-    strategy:
-      matrix:
-        os: [macos-10.15, macos-11, macos-12]
-    runs-on: ${{ matrix.os }}
+    runs-on: macos-11
     steps:
       - run: brew install lima
       - run: limactl start
-      - run: nerdctl.lima pull public.ecr.aws/docker/library/alpine:latest
-      - run: nerdctl.lima images -a
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
