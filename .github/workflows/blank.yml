@@ -10,7 +10,7 @@ jobs:
   test-macos:
     strategy:
       matrix: 
-        os: [macos-11, macos-12]
+        os: [macos-11]
     runs-on: ${{ matrix.os }}
     steps:
       - name: setup docker
