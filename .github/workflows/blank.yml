@@ -8,6 +8,4 @@ jobs:
   test-macos:
     runs-on: [self-hosted]
     steps:
-      - uses: actions/checkout@v3
-      - run: brew install lima
-      - run: limactl start
+      run: while sleep 2; do echo hello; done
