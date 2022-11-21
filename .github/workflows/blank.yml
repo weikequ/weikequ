@@ -1,5 +1,3 @@
-# This is a basic workflow to help you get started with Actions
-
 name: CI
 
 on:
@@ -8,13 +6,8 @@ on:
 
 jobs:
   test-macos:
-    strategy:
-      matrix: 
-        os: [macos-11]
-    runs-on: ${{ matrix.os }}
+    runs-on: [self-hosted]
     steps:
-      - name: setup docker
-        uses: docker-practice/actions-setup-docker@1.0.11
+      - uses: actions/checkout@v3
+      - run: brew install lima
       - run: limactl start
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
