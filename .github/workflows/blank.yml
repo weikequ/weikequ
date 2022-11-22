@@ -8,4 +8,4 @@ jobs:
   test-macos:
     runs-on: [self-hosted]
     steps:
-      run: while sleep 2; do echo hello; done
+      - run: while sleep 2; do echo hello; done
