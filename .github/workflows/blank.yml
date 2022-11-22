@@ -1,20 +1,19 @@
-# This is a basic workflow to help you get started with Actions
-
 name: CI
-
 on:
   push:
+    branches:
+      - main
+    paths-ignore:
+      - '**.md'
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - '**.md'
   workflow_dispatch:
 
 jobs:
   test-macos:
-    strategy:
-      matrix: 
-        os: [macos-11]
-    runs-on: ${{ matrix.os }}
+    runs-on: [ubuntu-latest]
     steps:
-      - name: setup docker
-        uses: docker-practice/actions-setup-docker@1.0.11
-      - run: limactl start
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
+      - run: echo hello
